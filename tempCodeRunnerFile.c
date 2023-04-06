@@ -3,6 +3,7 @@
 void main()
 {
     int myArray[3][3], i, j;
+
     for (i = 0; i < 3; i++)
     {
         for (j = 0; j < 3; j++)
@@ -11,15 +12,16 @@ void main()
             scanf("%d", &myArray[i][j]);
         }
     }
+
     printf("\nPrinting the element:\n");
     for (i = 0; i < 3; i++)
     {
+        printf("[] ");
         for (j = 0; j < 3; j++)
         {
             printf("%d ", myArray[i][j]);
         }
+        printf("]");
         printf("\n");
     }
-
-    return 0;
 }
