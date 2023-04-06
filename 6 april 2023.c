@@ -100,6 +100,7 @@ int main()
 //_______________________________________
 
 #include <stdio.h>
+
 struct employee
 {
     char name[30];
@@ -107,17 +108,55 @@ struct employee
     int age;
     char gender[30];
     char city[40];
-};                         
+};
+
 struct employee emp1, emp2, *ptr1, *ptr2;
 int main()
 {
-    // store adres of emp1 and emp2 structure variable
+
     ptr1 = &emp1;
     ptr2 = &emp2;
 
-    printf("enter the name of the employe(emp1);");
-    scanf("%s", &emp1.name);
+    printf("First Employee:\n");
+    printf("The name of first Employee (emp1): ");
+    scanf("%s", &ptr1->name);
+    printf("The id of first Employee (emp1): ");
+    scanf("%d", &ptr1->id);
+    printf("The age of first Employee (emp1): ");
+    scanf("%d", &ptr1->age);
+    printf("The gender of first Employee (emp1): ");
+    scanf("%s", &ptr1->gender);
+    printf("The city of first Employee (emp1): ");
+    scanf("%s", &ptr1->city);
 
-    printf("enter the id of the employe(emp1);");
-    scanf("%d", &emp1.id);
+    printf("\n");
+
+    printf("Second Employee:\n");
+    printf("The name of Second Employee (emp2): ");
+    scanf("%s", &ptr2->name);
+    printf("The id of Second Employee (emp2): ");
+    scanf("%d", &ptr2->id);
+    printf("The age of Second Employee (emp2): ");
+    scanf("%d", &ptr2->age);
+    printf("The gender of Second Employee (emp2): ");
+    scanf("%s", &ptr2->gender);
+    printf("The city of Second Employee (emp2): ");
+    scanf("%s", &ptr2->city);
+
+    printf("The Details of First Employee:\n");
+    printf("Name: %s\n", emp1.name);
+    printf("Id: %d\n", emp1.id);
+    printf("Age: %d\n", emp1.age);
+    printf("Gender: %s\n", emp1.gender);
+    printf("City: %s\n", emp1.city);
+
+    printf("\n");
+
+    printf("The Details of Second Employee:\n");
+    printf("Name: %s\n", emp2.name);
+    printf("Id: %d\n", emp2.id);
+    printf("Age: %d\n", emp2.age);
+    printf("Gender: %s\n", emp2.gender);
+    printf("City: %s\n", emp2.city);
+    return 0;
 }
