@@ -13,6 +13,7 @@ int main(){
     printf("Enter the price: ");
     scanf("%f", &myCar.price);
     printf("%s %d %f\n", myCar.name, myCar.seats, myCar.price);
+    printf("Size of structure: %d",sizeof(myCar));
     return 0;
 }
 
