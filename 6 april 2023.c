@@ -114,5 +114,10 @@ int main()
     // store adres of emp1 and emp2 structure variable
     ptr1 = &emp1;
     ptr2 = &emp2;
-    printf("enter the name of the employe(emp1);")
+
+    printf("enter the name of the employe(emp1);");
+    scanf("%s", &emp1.name);
+
+    printf("enter the id of the employe(emp1);");
+    scanf("%d", &emp1.id);
 }
