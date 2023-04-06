@@ -107,7 +107,7 @@ struct employee
     int age;
     char gender[30];
     char city[40];
-}; // define the variables of the structure with pointers
+};                         
 struct employee emp1, emp2, *ptr1, *ptr2;
 int main()
 {
