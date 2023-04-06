@@ -97,4 +97,22 @@ int main()
     printf("\nThe size of variable str1 is: %d", sizeof(st1));
 }
 
-//________________________________________
+//_______________________________________
+
+#include <stdio.h>
+struct employee
+{
+    char name[30];
+    int id;
+    int age;
+    char gender[30];
+    char city[40];
+}; // define the variables of the structure with pointers
+struct employee emp1, emp2, *ptr1, *ptr2;
+int main()
+{
+    // store adres of emp1 and emp2 structure variable
+    ptr1 = &emp1;
+    ptr2 = &emp2;
+    printf("enter the name of the employe(emp1);")
+}
