@@ -1,16 +1,25 @@
-#include <string.h>
 #include <stdio.h>
-union data
+
+void main()
 {
-    int i;
-    float f;
-    char str[20];
-};
-int main()
-{
-    union data Data;
-    printf("memory size occupied by data: %d\n", sizeof(Data));
-    Data.i = 10;
-    printf("Data.i : %d\n", Data.i);
+    int myArray[3][3], i, j;
+    for (i = 0; i < 3; i++)
+    {
+        for (j = 0; j < 3; j++)
+        {
+            printf("Enter the value of myArray[%d][%d]: ", i, j);
+            scanf("%d", &myArray[i][j]);
+        }
+    }
+    printf("\nPrinting the element:\n");
+    for (i = 0; i < 3; i++)
+    {
+        for (j = 0; j < 3; j++)
+        {
+            printf("%d ", myArray[i][j]);
+        }
+        printf("\n");
+    }
+
     return 0;
 }
