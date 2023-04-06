@@ -1,10 +1,12 @@
 #include <stdio.h>
+
 struct car
 {
     char name[20];
     int seats;
     float price;
 };
+
 int main()
 {
     struct car myCar;
@@ -22,6 +24,7 @@ int main()
 //_________________________________________
 
 #include <stdio.h>
+
 struct student
 {
     char name[30];
@@ -30,6 +33,7 @@ struct student
     int regID;
     float cgpa;
 };
+
 int main()
 {
     struct student myStudent;
@@ -53,12 +57,14 @@ int main()
 
 #include <string.h>
 #include <stdio.h>
+
 union data
 {
     int i;
     float f;
     char str[20];
 };
+
 int main()
 {
     union data Data;
@@ -71,6 +77,7 @@ int main()
 //_________________________________________
 
 #include <stdio.h>
+
 union student
 {
     char name[20];
@@ -79,6 +86,7 @@ union student
     int regid;
     float cgpa;
 };
+
 int main()
 {
     union student st1;
