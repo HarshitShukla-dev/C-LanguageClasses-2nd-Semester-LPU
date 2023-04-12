@@ -6,5 +6,7 @@ int main(){
     p = &x;
     printf("%u\n", p);
     printf("%d\n",*p);
+    printf("%p\n",*p);
+    printf("%p\n",p);
     return 0;
 }
