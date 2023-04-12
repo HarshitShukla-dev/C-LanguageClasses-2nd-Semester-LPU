@@ -17,6 +17,10 @@ int main()
 #include <stdio.h>
 int main()
 {
-    
+    int *pnum;
+    char *pch;
+    float *pfloat;
+    long *pdouble;
+
     return 0;
 }
