@@ -1,27 +1,8 @@
 #include <stdio.h>
-
-void main()
-{
-    int myArray[3][3], i, j;
-
-    for (i = 0; i < 3; i++)
-    {
-        for (j = 0; j < 3; j++)
-        {
-            printf("Enter the value of myArray[%d][%d]: ", i, j);
-            scanf("%d", &myArray[i][j]);
-        }
-    }
-
-    printf("\nPrinting the element:\n");
-    for (i = 0; i < 3; i++)
-    {
-        printf("[] ");
-        for (j = 0; j < 3; j++)
-        {
-            printf("%d ", myArray[i][j]);
-        }
-        printf("]");
-        printf("\n");
-    }
+int main(){
+    int x = 10, *p;
+    p = &x;
+    printf("%u\n", p);
+    printf("%d\n",*p);
+    return 0;
 }
