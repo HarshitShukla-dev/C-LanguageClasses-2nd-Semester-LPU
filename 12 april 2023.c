@@ -71,3 +71,10 @@ int main()
     printf("%d\n", *ptr);
     return 0;
 }
+
+//______________________________
+
+#include <stdio.h>
+int main(){
+    
+}
