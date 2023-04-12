@@ -1,14 +1,11 @@
+// program to find area of circle using pointers
 #include <stdio.h>
 int main()
 {
-    int *pnum;
-    char *pch;
-    float *pfloat;
-    long *pdouble;
-    printf("\nsize of int pointer=%d",sizeof(pnum));
-    printf("\nsize of char pointer=%d",sizeof(pch));
-    printf("\nsize of float pointer=%f",sizeof(pfloat));
-        printf("\nsize of double pointer=%d",sizeof(pdouble));
-
+    double radius, area = 0.0;
+    double *pradius = &radius, *parea = &area;
+    printf("\nEnter radius of circle: ");
+    scanf("%lf", pradius);
+    printf("\nArea of circle is %lf", *parea = 3.14 * (*pradius * *pradius));
     return 0;
 }
