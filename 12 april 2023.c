@@ -30,3 +30,10 @@ int main()
 
 //______________________________
 
+// program to find area of circle using pointers
+#include <stdio.h>
+int main()
+{
+    double radius, area = 0.0;
+    double *pradius = &radius, *parea = &area;
+}
