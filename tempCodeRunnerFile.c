@@ -1,11 +1,13 @@
-//Wild Pointer
 #include <stdio.h>
-int main(){
-    int *ptr;
-    int a = 10;
-    printf("%u\n",ptr);
-    ptr = &a;
-    printf("%u\n",ptr);
-    printf("%d\n",*ptr);
+
+int main() {
+    int x = 10, y = 20;
+    int *p, *q;
+
+    p = &x;
+    q = &y;
+
+    (*p > *q) ? printf("%d is greater than %d\n", *p, *q) : printf("%d is greater than %d\n", *q, *p);
+
     return 0;
 }
