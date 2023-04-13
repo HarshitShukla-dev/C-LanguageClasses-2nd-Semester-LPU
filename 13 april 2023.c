@@ -13,3 +13,6 @@ int main(){
 //___________________________
 
 #include <stdio.h>
+int main(){
+    
+}
