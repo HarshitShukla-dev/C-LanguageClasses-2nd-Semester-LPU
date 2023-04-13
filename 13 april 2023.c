@@ -8,7 +8,7 @@ int main()
     printf("\n%d", *p1); // 2 will be printed
     p1--;
     printf("\n%d", *p1);
-    p1 = p1 + 2; // addding a constant to pointer (p1 will point towards
+    p1 = p1 + 2; // addding a constant to pointer (p1 will point towards)
     printf("\n%d", *p1);
     p1 = p1 - 2;
     printf("\n%d", *p1); // 1 will be printed
@@ -23,4 +23,3 @@ int main()
 }
 
 //____________________________________________
-
