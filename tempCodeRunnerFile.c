@@ -1,12 +1,17 @@
 #include <stdio.h>
-int main(){
+int main()
+{
     FILE *file;
-    if (file = fopen("FileHandling01.txt", "r+")){
-        fputs("Home Address: Bangarmau, Unnao, Uttar-Pradesh India 209868",file);
-        fputs("Current Address: C101 - Bh6, Lovely Professional University",file);
-        printf("Done ...........");
+    char str[500];
+    if (file = fopen("FileHandling01.txt", "r"))
+    {
+        while (fscanf(file, "%s", str) != EOF)
+        {
+            printf("%s", str);
+        }
     }
-    else{
+    else
+    {
         printf("Error in opening file");
     }
     fclose(file);
