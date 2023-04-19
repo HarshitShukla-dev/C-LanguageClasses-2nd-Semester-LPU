@@ -2,13 +2,16 @@
 int main()
 {
     FILE *file;
-    if (file = fopen("FileHandling01.txt", "r"))
+    if (file = fopen("FileHandling01.txt", "a"))
     {
-        printf("File opened successfully in read mode");
-    }
-    else
-    {
-        printf("Error in opening file");
+        if (fputs("He was a great personality.",file) >= 0)
+        {
+            printf("File opened successfully in append mode");
+        }
+        else
+        {
+            printf("Error in opening file");
+        }
     }
     fclose(file);
     return 0;
