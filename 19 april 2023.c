@@ -61,12 +61,15 @@ int main()
 //_____________________________________________
 
 #include <stdio.h>
-int main(){
+int main()
+{
     FILE *file;
-    if (file = fopen("FileHandling01.txt", "r+")){
+    if (file = fopen("FileHandling01.txt", "r+"))
+    {
         printf("File opened successfully in read and write mode");
     }
-    else{
+    else
+    {
         printf("Error in opening file");
     }
     fclose(file);
@@ -76,14 +79,39 @@ int main(){
 //_____________________________________________
 
 #include <stdio.h>
-int main(){
+int main()
+{
     FILE *file;
-    if (file = fopen("FileHandling01.txt", "r+")){
-        fputs("Home Address: Bangarmau, Unnao, Uttar-Pradesh India 209868",file);
-        fputs("Current Address: C101 - Bh6, Lovely Professional University",file);
+    if (file = fopen("FileHandling01.txt", "r+"))
+    {
+        fputs("Home Address: Bangarmau, Unnao, Uttar-Pradesh India 209868\n", file);
+        fputs("Current Address: C101 - Bh6, Lovely Professional University", file);
         printf("Done ...........");
     }
-    else{
+    else
+    {
+        printf("Error in opening file");
+    }
+    fclose(file);
+    return 0;
+}
+
+//_____________________________________________
+
+#include <stdio.h>
+int main()
+{
+    FILE *file;
+    char str[500];
+    if (file = fopen("FileHandling01.txt", "r"))
+    {
+        while (fscanf(file, "%s", str) != EOF)
+        {
+            printf("%s", str);
+        }
+    }
+    else
+    {
         printf("Error in opening file");
     }
     fclose(file);
