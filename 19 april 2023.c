@@ -15,5 +15,6 @@ int main()
             printf("Error in opening file");
         }
     }
+    fclose(file);
     return 0;
 }
