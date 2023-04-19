@@ -1,9 +1,14 @@
 #include <stdio.h>
-int main(){
+#include <conio.h>
+int main()
+{
     FILE *file;
-    char str[500];
-    if (file = fopen("FileHandling01.txt", "r")){
-        printf("%s",fgets(str,10,file));
+    char str;
+    if (file = fopen("FileHandling01.txt", "r"))
+    {
+        while((str=fgetc(file))!=EOF){
+            printf("%c",str);
+        }
     }
     fclose(file);
     return 0;
