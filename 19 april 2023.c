@@ -4,7 +4,7 @@
 int main()
 {
     FILE *file;
-    if (file = fopen("/hello.txt", "w"))
+    if (file = fopen("FileHandling01.txt", "w"))
     {
         if (fputs("Swami Vivekanand....", file) >= 0)
         {
