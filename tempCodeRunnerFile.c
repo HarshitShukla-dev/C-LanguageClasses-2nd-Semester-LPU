@@ -1,18 +1,9 @@
 #include <stdio.h>
-int main()
-{
+int main(){
     FILE *file;
     char str[500];
-    if (file = fopen("FileHandling01.txt", "r"))
-    {
-        while (fscanf(file, "%s", str) != EOF)
-        {
-            printf("%s", str);
-        }
-    }
-    else
-    {
-        printf("Error in opening file");
+    if (file = fopen("FileHandling01.txt", "r")){
+        printf("%s",fgets(str,10,file));
     }
     fclose(file);
     return 0;
