@@ -25,7 +25,7 @@ int main()
 int main()
 {
     FILE *file;
-    if (file = fopen("hello.txt", "r"))
+    if (file = fopen("FileHandling01.txt", "r"))
     {
         printf("File opened successfully in read mode");
     }
@@ -36,3 +36,6 @@ int main()
     fclose(file);
     return 0;
 }
+
+//_____________________________________________
+
