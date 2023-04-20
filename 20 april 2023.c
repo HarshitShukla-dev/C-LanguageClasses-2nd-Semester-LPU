@@ -53,6 +53,25 @@ int main()
 //_____________________________________
 
 #include <stdio.h>
-int main(){
-    FILE *fp;
+int main()
+{
+    struct student
+    {
+        int id;
+        char name[20];
+        double mob;
+    }s1,s2;
+
+    FILE *ptr;
+    ptr = fopen("FileHandling02.bin","wb+");
+    if(ptr == NULL){
+        printf("File not found");
+    }
+    else{
+        printf("File created..");
+        printf("Enter id : ");
+        
+    }
+    
+    FILE *file;
 }
