@@ -10,7 +10,7 @@ int main()
     }
     fseek(fp, 6, 0);
     char ch;
-    while (ch = fgetc(fp))
+    while (fread(&ch,sizeof(ch),1,fp) == 1)
     {
         printf("%c", ch);
     }
