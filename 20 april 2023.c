@@ -58,7 +58,7 @@ int main()
     struct student
     {
         int id;
-        char name[20];
+        char name[50];
         int mob;
     } s1, s2;
 
