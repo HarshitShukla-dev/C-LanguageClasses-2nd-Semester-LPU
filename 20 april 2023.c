@@ -59,7 +59,7 @@ int main()
     {
         int id;
         char name[20];
-        double mob;
+        int mob;
     } s1, s2;
 
     FILE *ptr;
@@ -76,7 +76,7 @@ int main()
         printf("Enter name : ");
         scanf("%s", s1.name);
         printf("Enter mob : ");
-        scanf("%lf", &s1.mob);
+        scanf("%d", &s1.mob);
 
         fwrite(&s1, sizeof(s1), 1, ptr);
         fseek(ptr, 0, SEEK_SET);
