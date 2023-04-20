@@ -15,16 +15,19 @@ int main()
     }
     else{
         printf("File created..");
-        printf("Enter id : ");
+        printf("\nEnter id : ");
         scanf("%d",&s1.id);
-        printf("Enter name : ");
+        printf("\nEnter name : ");
         scanf("%s",s1.name);
-        printf("Enter mob : ");
+        printf("\nEnter mob : ");
         scanf("%lf",&s1.mob);
+
         fwrite(&s1,sizeof(s1),1,ptr);
+        fseek(ptr,0,SEEK_SET);
+        fread(&s2,sizeof(s2),1,ptr);
+        printf("\nID: %d \nName: %s \nMobile Number: %.2lf",s2.id,s2.name,s2.mob);
         fclose(ptr);
         printf("File saved..");
     }
-    
-    FILE *file;
+    return 0;
 }
