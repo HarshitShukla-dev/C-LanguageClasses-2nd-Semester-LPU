@@ -51,3 +51,8 @@ int main()
 }
 
 //_____________________________________
+
+#include <stdio.h>
+int main(){
+    FILE *fp;
+}
