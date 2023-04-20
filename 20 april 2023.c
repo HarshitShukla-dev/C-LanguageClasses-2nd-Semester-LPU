@@ -100,6 +100,8 @@ int main()
     scanf("%s", Name);
     printf("Enter your Address : ");
     scanf("%s", Address);
-    printf("\nYour Name is %s and you live at %s", Name, Address);
+    printf("\nYour Name is %s and you live at %s.", Name, Address);
     return 0;
 }
+
+//_____________________________________
