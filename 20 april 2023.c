@@ -10,7 +10,7 @@ int main()
     }
     fseek(fp, 6, 0);
     char ch;
-    while (fread(&ch,sizeof(ch),1,fp) == 1)
+    while (fread(&ch, sizeof(ch), 1, fp) == 1)
     {
         printf("%c", ch);
     }
@@ -21,10 +21,13 @@ int main()
 //_____________________________________
 
 #include <stdio.h>
-int main(){
+int main()
+{
     FILE *file;
-    if(file=fopen("FileHandling01.txt","w")){
-        if(fprintf(file,"He was a great personality.....")>=0){
+    if (file = fopen("FileHandling01.txt", "w"))
+    {
+        if (fprintf(file, "He was a great personality.....") >= 0)
+        {
             printf("Successfull");
         }
     }
