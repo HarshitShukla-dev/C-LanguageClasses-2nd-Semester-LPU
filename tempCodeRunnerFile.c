@@ -1,111 +1,300 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
-// structure to store account information
-struct account
-{
-    int account_number;
-    char name[50];
-    float balance;
-    char password[20];
-    char payee[50];
-};
+#define MAX_CONTACTS 100
+#define MAX_NAME_LENGTH 50
+#define MAX_ADDRESS_LENGTH 100
+#define MAX_PHONE_LENGTH 15
+#define MAX_EMAIL_LENGTH 50
 
-// function to display account status
-void account_status(struct account acc)
+// Struct to represent a contact
+typedef struct
 {
-    printf("Account Number: %d\n", acc.account_number);
-    printf("Name: %s\n", acc.name);
-    printf("Balance: %.2f\n", acc.balance);
-}
+    char name[MAX_NAME_LENGTH];
+    char address[MAX_ADDRESS_LENGTH];
+    char phone[MAX_PHONE_LENGTH];
+    char email[MAX_EMAIL_LENGTH];
+} Contact;
 
-// function to open a new account
-void account_opening(struct account *acc)
-{
-    printf("Enter account number: ");
-    scanf("%d", &acc->account_number);
-    printf("Enter name: ");
-    scanf("%s", acc->name);
-    printf("Enter initial balance: ");
-    scanf("%f", &acc->balance);
-    printf("Enter password: ");
-    scanf("%s", acc->password);
-}
+// Global array to store contacts
+Contact contacts[MAX_CONTACTS];
 
-// function to change account password
-void change_password(struct account *acc)
-{
-    char old_password[20];
-    printf("Enter current password: ");
-    scanf("%s", old_password);
-    if (strcmp(old_password, acc->password) == 0)
-    {
-        printf("Enter new password: ");
-        scanf("%s", acc->password);
-        printf("Password changed successfully!\n");
-    }
-    else
-    {
-        printf("Incorrect password, please try again.\n");
-    }
-}
+int numContacts = 0; // Number of contacts currently in the phonebook
 
-// function to manage payees
-void payee_management(struct account *acc)
-{
-    printf("Enter payee name: ");
-    scanf("%s", acc->payee);
-    printf("Payee added successfully!\n");
-}
+// Function prototypes
+void addContact();
+void viewAllContacts();
+void editContact();
+void searchContact();
+void deleteContact();
+void saveContactsToFile();
+void loadContactsFromFile();
 
-// function to view account statement
-void view_statement(struct account acc)
-{
-    printf("Account Number: %d\n", acc.account_number);
-    printf("Name: %s\n", acc.name);
-    printf("Balance: %.2f\n", acc.balance);
-    printf("Payee: %s\n", acc.payee);
-}
-
-// main function
 int main()
 {
+    loadContactsFromFile(); // Load contacts from file (if any)
     int choice;
-    struct account acc;
-    printf("Welcome to Online Banking System\n");
-    while (1)
+
+    do
     {
-        printf("\n1. Account Status\n");
-        printf("2. Account Opening\n");
-        printf("3. Change Password\n");
-        printf("4. Payee Management\n");
-        printf("5. View Statement\n");
+        printf("Phonebook Management System\n");
+        printf("1. Add a contact\n");
+        printf("2. View all contacts\n");
+        printf("3. Edit a contact\n");
+        printf("4. Search for a contact\n");
+        printf("5. Delete a contact\n");
         printf("6. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
+
         switch (choice)
         {
         case 1:
-            account_status(acc);
+            addContact();
             break;
         case 2:
-            account_opening(&acc);
+            viewAllContacts();
             break;
         case 3:
-            change_password(&acc);
+            editContact();
             break;
         case 4:
-            payee_management(&acc);
+            searchContact();
             break;
         case 5:
-            view_statement(acc);
+            deleteContact();
             break;
         case 6:
-            printf("Thank you for using our Online Banking System!\n");
-            return 0;
+            saveContactsToFile(); // Save contacts to file before exiting
+            printf("Thank you for using the Phonebook Management System. Goodbye!\n");
+            exit(0);
         default:
-            printf("Invalid choice, please try again.\n");
+            printf("Invalid choice. Please try again.\n");
+        }
+
+    } while (1);
+
+    return 0;
+}
+
+void addContact()
+{
+    if (numContacts == MAX_CONTACTS)
+    {
+        printf("Phonebook is full. Cannot add more contacts.\n");
+        return;
+    }
+
+    Contact newContact;
+    printf("Enter name: ");
+    getchar(); // Clear input buffer
+    fgets(newContact.name, MAX_NAME_LENGTH, stdin);
+    newContact.name[strcspn(newContact.name, "\n")] = '\0'; // Remove newline character
+
+    printf("Enter address: ");
+    fgets(newContact.address, MAX_ADDRESS_LENGTH, stdin);
+    newContact.address[strcspn(newContact.address, "\n")] = '\0'; // Remove newline character
+
+    printf("Enter phone number: ");
+    fgets(newContact.phone, MAX_PHONE_LENGTH, stdin);
+    newContact.phone[strcspn(newContact.phone, "\n")] = '\0'; // Remove newline character
+
+    printf("Enter email: ");
+    fgets(newContact.email, MAX_EMAIL_LENGTH, stdin);
+    newContact.email[strcspn(newContact.email, "\n")] = '\0'; // Remove newline character
+
+    contacts[numContacts++] = newContact;
+    printf("Contact added successfully.\n");
+}
+
+void viewAllContacts()
+{
+    if (numContacts == 0)
+    {
+        printf("No contacts found.\n");
+        return;
+    }
+
+    printf("Contacts in the phonebook:\n");
+    for (int i = 0; i < numContacts; i++)
+    {
+        printf("Contact %d:\n", i + 1);
+        printf("Name: %s\n", contacts[i].name);
+        printf("Address: %s\n", contacts[i].address);
+        printf("Phone: %s\n", contacts[i].phone);
+        printf("Email: %s\n", contacts[i].email);
+    }
+}
+
+void editContact()
+{
+    if (numContacts == 0)
+    {
+        printf("No contacts found.\n");
+        return;
+    }
+
+    char searchName[MAX_NAME_LENGTH];
+    printf("Enter the name of the contact to edit: ");
+    getchar(); // Clear input buffer
+    fgets(searchName, MAX_NAME_LENGTH, stdin);
+    searchName[strcspn(searchName, "\n")] = '\0'; // Remove newline character
+
+    int foundIndex = -1;
+    for (int i = 0; i < numContacts; i++)
+    {
+        if (strcmp(searchName, contacts[i].name) == 0)
+        {
+            foundIndex = i;
             break;
         }
     }
+
+    if (foundIndex == -1)
+    {
+        printf("Contact not found.\n");
+        return;
+    }
+
+    printf("Enter new name (or press enter to skip): ");
+    fgets(contacts[foundIndex].name, MAX_NAME_LENGTH, stdin);
+    contacts[foundIndex].name[strcspn(contacts[foundIndex].name, "\n")] = '\0'; // Remove newline character
+
+    printf("Enter new address (or press enter to skip): ");
+    fgets(contacts[foundIndex].address, MAX_ADDRESS_LENGTH, stdin);
+    contacts[foundIndex].address[strcspn(contacts[foundIndex].address, "\n")] = '\0'; // Remove newline character
+
+    printf("Enter new phone number (or press enter to skip): ");
+    fgets(contacts[foundIndex].phone, MAX_PHONE_LENGTH, stdin);
+    contacts[foundIndex].phone[strcspn(contacts[foundIndex].phone, "\n")] = '\0'; // Remove newline character
+
+    printf("Enter new email (or press enter to skip): ");
+    fgets(contacts[foundIndex].email, MAX_EMAIL_LENGTH, stdin);
+    contacts[foundIndex].email[strcspn(contacts[foundIndex].email, "\n")] = '\0'; // Remove newline character
+
+    printf("Contact edited successfully.\n");
+}
+
+void searchContact()
+{
+    if (numContacts == 0)
+    {
+        printf("No contacts found.\n");
+        return;
+    }
+
+    char searchName[MAX_NAME_LENGTH];
+    printf("Enter the name of the contact to search: ");
+    getchar(); // Clear input buffer
+    fgets(searchName, MAX_NAME_LENGTH, stdin);
+    searchName[strcspn(searchName, "\n")] = '\0'; // Remove newline character
+
+    int foundIndex = -1;
+    for (int i = 0; i < numContacts; i++)
+    {
+        if (strcmp(searchName, contacts[i].name) == 0)
+        {
+            foundIndex = i;
+            break;
+        }
+    }
+
+    if (foundIndex == -1)
+    {
+        printf("Contact not found.\n");
+        return;
+    }
+
+    printf("Contact found:\n");
+    printf("Name: %s\n", contacts[foundIndex].name);
+    printf("Address: %s\n", contacts[foundIndex].address);
+    printf("Phone: %s\n", contacts[foundIndex].phone);
+    printf("Email: %s\n", contacts[foundIndex].email);
+}
+
+void deleteContact()
+{
+    if (numContacts == 0)
+    {
+        printf("No contacts found.\n");
+        return;
+    }
+
+    char searchName[MAX_NAME_LENGTH];
+    printf("Enter the name of the contact to delete: ");
+    getchar(); // Clear input buffer
+    fgets(searchName, MAX_NAME_LENGTH, stdin);
+    searchName[strcspn(searchName, "\n")] = '\0'; // Remove newline character
+
+    int foundIndex = -1;
+    for (int i = 0; i < numContacts; i++)
+    {
+        if (strcmp(searchName, contacts[i].name) == 0)
+        {
+            foundIndex = i;
+            break;
+        }
+    }
+
+    if (foundIndex == -1)
+    {
+        printf("Contact not found.\n");
+        return;
+    }
+
+    // Shift all contacts after the deleted contact to fill the gap
+    for (int i = foundIndex; i < numContacts - 1; i++)
+    {
+        contacts[i] = contacts[i + 1];
+    }
+
+    numContacts--;
+
+    printf("Contact deleted successfully.\n");
+}
+
+int main()
+{
+    int choice;
+    while (1)
+    {
+        printf("\nPhonebook Management System\n");
+        printf("1. Add a contact\n");
+        printf("2. View all contacts\n");
+        printf("3. Edit a contact\n");
+        printf("4. Search for a contact\n");
+        printf("5. Delete a contact\n");
+        printf("6. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+        getchar(); // Clear input buffer
+
+        switch (choice)
+        {
+        case 1:
+            addContact();
+            break;
+        case 2:
+            viewContacts();
+            break;
+        case 3:
+            editContact();
+            break;
+        case 4:
+            searchContact();
+            break;
+        case 5:
+            deleteContact();
+            break;
+        case 6:
+            printf("Exiting...\n");
+            exit(0);
+        default:
+            printf("Invalid choice. Please try again.\n");
+            break;
+        }
+    }
+
+    return 0;
 }
