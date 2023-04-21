@@ -253,3 +253,80 @@ void deleteContact()
 
     printf("Contact deleted successfully.\n");
 }
+
+// Define a struct to represent a contact
+struct Contact
+{
+    char name[100];
+    char email[100];
+    char phone[20];
+};
+
+// Function declaration for viewContacts()
+void viewContacts();
+
+// Function definition for saveContactsToFile()
+void saveContactsToFile()
+{
+    FILE *file = fopen("contacts.txt", "w"); // Open file in write mode
+
+    if (file == NULL)
+    {
+        printf("Failed to open file for writing.\n");
+        return;
+    }
+
+    // Create an array of contacts
+    struct Contact contacts[] = {
+        {"John Doe", "john.doe@example.com", "1234567890"},
+        {"Jane Smith", "jane.smith@example.com", "9876543210"},
+        // Add more contacts as needed
+    };
+
+    // Write contacts to file
+    for (int i = 0; i < sizeof(contacts) / sizeof(struct Contact); i++)
+    {
+        fprintf(file, "%s;%s;%s\n", contacts[i].name, contacts[i].email, contacts[i].phone);
+    }
+
+    printf("Contacts saved to file successfully.\n");
+
+    // Close the file
+    fclose(file);
+}
+
+// Function definition for loadContactsFromFile()
+void loadContactsFromFile()
+{
+    FILE *file = fopen("contacts.txt", "r"); // Open file in read mode
+
+    if (file == NULL)
+    {
+        printf("Failed to open file for reading.\n");
+        return;
+    }
+
+    // Read contacts from file
+    struct Contact contacts[100]; // Assuming maximum of 100 contacts
+    int numContacts = 0;          // Variable to keep track of number of contacts read
+
+    while (fscanf(file, "%[^;];%[^;];%s\n", contacts[numContacts].name, contacts[numContacts].email, contacts[numContacts].phone) == 3)
+    {
+        numContacts++;
+    }
+
+    printf("Loaded %d contacts from file.\n", numContacts);
+
+    // Close the file
+    fclose(file);
+
+    // Display loaded contacts
+    printf("Contacts:\n");
+    for (int i = 0; i < numContacts; i++)
+    {
+        printf("Name: %s\n", contacts[i].name);
+        printf("Email: %s\n", contacts[i].email);
+        printf("Phone: %s\n", contacts[i].phone);
+        printf("\n");
+    }
+}
