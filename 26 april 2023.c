@@ -41,7 +41,7 @@ void main()
     ptr = country;
     while (*ptr != '\0')
     {
-        printf("%c", *ptr);
+        printf("%c", *ptr); // prints INDIA
         ptr++;
     }
 }
