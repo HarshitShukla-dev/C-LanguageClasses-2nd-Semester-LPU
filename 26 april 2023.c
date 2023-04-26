@@ -1,5 +1,6 @@
 #include <stdio.h>
-void main(){
+void main()
+{
     char name[100];
     puts("\nEnter the string : ");
     gets(name);
