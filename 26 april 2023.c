@@ -80,8 +80,8 @@ void main()
     printf("Enter your duplicate name: ");
     gets(dup);
     printf("Enter the value of n: ");
-    scanf("%d",n);
-    s = strncpy(ori, dup,n);
+    scanf("%d", n);
+    s = strncpy(ori, dup, n);
     printf("\nOriginal string is: %s", ori);
     printf("\nDuplicate string is: %s", dup);
     printf("\nValue of s is: %s", s);
@@ -99,9 +99,9 @@ void main()
     gets(ori);
     printf("Enter your duplicate name: ");
     gets(dup);
-    strcat(ori,dup);
-    printf("String after concatenation: %s",ori);
-}   
+    strcat(ori, dup);
+    printf("String after concatenation: %s", ori);
+}
 
 //_________________________________
 
@@ -118,9 +118,35 @@ void main()
     printf("Enter your duplicate name: ");
     gets(dup);
     printf("Enter the value of n: ");
-    scanf("%d",n);
-    strncat(ori, dup,n);
+    scanf("%d", n);
+    strncat(ori, dup, n);
     printf("\nOriginal string is: %s", ori);
 }
 
 //_________________________________
+
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+    char str1[20], str2[20];
+    int x;
+    printf("\nEnter the first string: ");
+    gets(str1);
+    printf("\nEnter the second string: ");
+    gets(str2);
+    x = strcmp(str1, str2);
+    if (x == 0)
+    {
+        printf("\nThe strings are equal");
+    }
+    else if (x > 0)
+    {
+        printf("\nThe first string is greater than the second");
+    }
+    else
+    {
+        printf("\nThe first string is less than the second");
+    }
+    return 0;
+}
