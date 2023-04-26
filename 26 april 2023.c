@@ -7,3 +7,6 @@ void main()
     printf("\nString is: ");
     puts(name);
 }
+
+//_________________________________
+
