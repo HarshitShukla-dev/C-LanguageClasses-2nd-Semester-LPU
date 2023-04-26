@@ -64,3 +64,5 @@ void main()
     printf("\nDuplicate string is: %s", dup);
     printf("\nValue of s is: %s", s);
 }
+
+//_________________________________
