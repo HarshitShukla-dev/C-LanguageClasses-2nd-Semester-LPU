@@ -67,3 +67,60 @@ void main()
 
 //_________________________________
 
+#include <stdio.h>
+#include <string.h>
+void main()
+{
+    // strcopy() function
+    char ori[20], dup[20];
+    char *s;
+    int n;
+    printf("Enter your name: ");
+    gets(ori);
+    printf("Enter your duplicate name: ");
+    gets(dup);
+    printf("Enter the value of n: ");
+    scanf("%d",n);
+    s = strncpy(ori, dup,n);
+    printf("\nOriginal string is: %s", ori);
+    printf("\nDuplicate string is: %s", dup);
+    printf("\nValue of s is: %s", s);
+}
+
+//_________________________________
+
+#include <stdio.h>
+#include <string.h>
+void main()
+{
+    // strcat() function
+    char ori[20], dup[20];
+    printf("Enter your name: ");
+    gets(ori);
+    printf("Enter your duplicate name: ");
+    gets(dup);
+    strcat(ori,dup);
+    printf("String after concatenation: %s",ori);
+}   
+
+//_________________________________
+
+#include <stdio.h>
+#include <string.h>
+void main()
+{
+    // strcat() function
+    char ori[20], dup[20];
+    char *s;
+    int n;
+    printf("Enter your name: ");
+    gets(ori);
+    printf("Enter your duplicate name: ");
+    gets(dup);
+    printf("Enter the value of n: ");
+    scanf("%d",n);
+    strncat(ori, dup,n);
+    printf("\nOriginal string is: %s", ori);
+}
+
+//_________________________________
