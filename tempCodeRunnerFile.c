@@ -9,7 +9,7 @@ void main()
     gets(ori);
     printf("Enter your duplicate name: ");
     gets(dup);
-    s = strcopy(ori, dup);
+    s = strcpy(ori, dup);
     printf("\nOriginal string is: %s", ori);
     printf("\nDuplicate string is: %s", dup);
     printf("\nValue of s is: %s", s);
