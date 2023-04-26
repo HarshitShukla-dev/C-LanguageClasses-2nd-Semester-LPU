@@ -71,7 +71,7 @@ void main()
 #include <string.h>
 void main()
 {
-    // strcopy() function
+    // strncopy() function
     char ori[20], dup[20];
     char *s;
     int n;
@@ -109,7 +109,7 @@ void main()
 #include <string.h>
 void main()
 {
-    // strcat() function
+    // strncat() function
     char ori[20], dup[20];
     char *s;
     int n;
@@ -129,6 +129,7 @@ void main()
 #include <string.h>
 int main()
 {
+    // strcmp() function
     char str1[20], str2[20];
     int x;
     printf("\nEnter the first string: ");
@@ -153,3 +154,31 @@ int main()
 
 //_________________________________
 
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+    // strncmp() function
+    char str1[20], str2[20];
+    int x, n;
+    printf("\nEnter the first string: ");
+    gets(str1);
+    printf("\nEnter the second string: ");
+    gets(str2);
+    printf("Enter n: ");
+    scanf("%d", &n);
+    x = strncmp(str1, str2, n);
+    if (x == 0)
+    {
+        printf("\nThe strings are equal");
+    }
+    else if (x > 0)
+    {
+        printf("\nThe first string is greater than the second");
+    }
+    else
+    {
+        printf("\nThe first string is less than the second");
+    }
+    return 0;
+}
