@@ -124,7 +124,7 @@ void main()
         str2[i] = str1[i] + 32;
         i++;
     }
-    printf("Lowercase is %d", i);
+    printf("Lowercase is %s", str2);
 }
 
 //_________________________________
@@ -142,5 +142,7 @@ void main()
         str2[i] = str1[i] - 32;
         i++;
     }
-    printf("Uppercase is %d", i);
+    printf("Uppercase is %s", str2);
 }
+
+//_________________________________
