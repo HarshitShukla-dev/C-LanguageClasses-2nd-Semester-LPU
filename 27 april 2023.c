@@ -63,3 +63,10 @@ void main()
     }
     printf("The string 1 is %s and the string 2 is %s.", str1, str2);
 }
+
+//_________________________________
+
+#include <stdio.h>
+void main(){
+    
+}
