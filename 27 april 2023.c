@@ -105,5 +105,5 @@ void main()
         k++;
         j++;
     }
-    printf("Uppercase of %s is %s.");
+    printf("Concatanated strings is : %s", str3);
 }
