@@ -67,7 +67,7 @@ void main()
 
 //_________________________________
 
-//
+// Find length of string without function
 #include <stdio.h>
 void main()
 {
@@ -84,6 +84,7 @@ void main()
 
 //_________________________________
 
+// Add two strings without a function
 #include <stdio.h>
 void main()
 {
@@ -110,6 +111,7 @@ void main()
 
 //_________________________________
 
+// Convert uppercase to lowercase without a function
 #include <stdio.h>
 void main()
 {
@@ -127,6 +129,7 @@ void main()
 
 //_________________________________
 
+// Convert lowercase to uppercase without a function
 #include <stdio.h>
 void main()
 {
