@@ -10,5 +10,5 @@ void main()
         str2[i] = str1[i] + 32;
         i++;
     }
-    printf("Lowercase is %d", i);
+    printf("Lowercase is %s", str2);
 }
