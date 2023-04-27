@@ -7,8 +7,8 @@ void main()
     gets(str1);
     while (str1[i] != '\0')
     {
-        str2[i] = str1[i] + 32;
+        str2[i] = str1[i] - 32;
         i++;
     }
-    printf("Lowercase is %s", str2);
+    printf("Uppercase is %s", str2);
 }
