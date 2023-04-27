@@ -47,6 +47,7 @@ void main()
 
 //_________________________________
 
+// Copy two strings without copy function
 #include <stdio.h>
 void main()
 {
@@ -67,6 +68,6 @@ void main()
 //_________________________________
 
 #include <stdio.h>
-void main(){
-    
+void main()
+{
 }
