@@ -18,5 +18,7 @@ void main()
     char str[40];
     printf("Enter the string : ");
     gets(str);
-    printf("Length of the string is %d.", strlen(str));
+    printf("Reverse of the string is %s.", strrev(str));
 }
+
+//_________________________________
