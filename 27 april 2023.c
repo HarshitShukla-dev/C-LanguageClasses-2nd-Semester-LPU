@@ -22,3 +22,27 @@ void main()
 }
 
 //_________________________________
+
+#include <stdio.h>
+#include <string.h>
+void main()
+{
+    char str[40];
+    printf("Enter the string in uppercase : ");
+    gets(str);
+    printf("Lowercase of the string is %s.", strlwr(str));
+}
+
+//_________________________________
+
+#include <stdio.h>
+#include <string.h>
+void main()
+{
+    char str[40];
+    printf("Enter the string in Lowercase : ");
+    gets(str);
+    printf("Uppercase of the string is %s.", strupr(str));
+}
+
+//_________________________________
